@@ -1,0 +1,50 @@
+<app-encabezado titulo="Iniciar Sesión" icono="person"></app-encabezado>
+
+<ion-content class="ion-padding-start">
+<ion-text color="primary">
+  <h1>Bienvenido</h1>
+  <p>Por favor inicie sesión</p>
+  <ion-card-header>
+    
+    <form #miformulario="ngForm" (ngSubmit)="onSubmit()">
+
+      <ion-input required type="text" name="usrname" placeholder="Usuario" [(ngModel)]="user.username"></ion-input>
+      <ion-input required type="password" name="psw" placeholder="Contraseña" [(ngModel)]="user.password"></ion-input>
+      <ion-item>
+        <ion-label>Users</ion-label>
+        <ion-select name="emplo" [(ngModel)]="tipousuario.id" [disabled]="miformulario.invalid">
+          <ion-select-option *ngFor="let sel of tipousuariox" [value]="sel.id">
+            {{sel.name}}
+
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-button  color="dark" type="submit" expand="block" [disabled]="miformulario.invalid">
+        Iniciar Sesión
+      </ion-button>
+
+      
+      
+    </form>
+  </ion-card-header>
+  <ion-img class="animate__animated animate__backInLeft animate__slower 1s" src="../assets/images/te-llevo-app.png"></ion-img> 
+
+  
+</ion-text>
+</ion-content>
+
+
+
+
+<ion-footer >
+  <ion-toolbar color="dark">
+    <ion-title slot="end" class="ion-align-items-center">
+      <ion-button routerLink="../restablecer-pass" color="danger" class="ion-padding-bot" size="small">
+        <ion-text color="dark">
+          <p>Recuperar Cuenta</p>
+        </ion-text>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

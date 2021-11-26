@@ -1,0 +1,39 @@
+
+<ion-app >
+ 
+
+  <ion-menu class="menu" side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+      <ion-menu-toggle>
+  
+      <ion-list lines="full" *ngFor="let item of opciones" >
+        <ion-item [routerLink]="item.link" detail>
+          <ion-icon slot="start" [name]="item.icono"></ion-icon>
+          {{item.texto}}
+        </ion-item>
+        
+      </ion-list>
+    </ion-menu-toggle>
+    </ion-content>
+  
+  </ion-menu>
+  
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+</ion-app>
+
+
+        <!-- <ion-item routerLink="ingreso-usuario" detail>
+          <ion-icon slot="start" name="person"></ion-icon> 
+          Iniciar Sesión
+        </ion-item>
+        <ion-item routerLink="restablecer-pass" detail>
+          <ion-icon slot="start" name="bulb-outline"></ion-icon>
+           Recuperar Password
+        </ion-item> -->

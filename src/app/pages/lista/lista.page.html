@@ -1,0 +1,22 @@
+
+<app-encabezado titulo="Disponibilidad" icono="list"></app-encabezado>
+
+<ion-text color="primary">
+  <h3 *ngIf="usuario===''" ></h3>
+  <h3 *ngIf="usuario!==''" >Bienvenido {{usuario}} !! a continuación la lista de los uberduoc disponibles</h3>
+</ion-text>
+
+<ion-content>
+  <ion-list class="animate__animated animate__backInLeft animate__fast" >
+    <ion-list *ngFor="let per of personas; let i=index" >
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="per.srcimagen"/>
+        </ion-avatar>
+        <ion-label>{{i+1}} ▷ {{per.nombre}} {{per.apellido}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+</ion-content>
+
+<ion-img class="animate__animated animate__backInLeft" src="../assets/images/te-llevo-app.png"></ion-img> 

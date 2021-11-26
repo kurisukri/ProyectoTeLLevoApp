@@ -1,0 +1,67 @@
+<ion-header >
+  
+  <ion-toolbar>
+    <ion-button color="dark">
+      <ion-menu-button mode="ios" color="danger" menu="first"></ion-menu-button>
+    </ion-button>
+
+    
+    <ion-title >
+     
+    </ion-title>
+    
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-icon slot="end" name="home" class="ion-padding"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+    
+    <ion-card>
+      
+      <ion-card-header>
+        <ion-card-subtitle>Duoc UC</ion-card-subtitle>
+        <ion-card-title>
+          <ion-img class="animate__animated animate__backInLeft animate__fast" src="../assets/images/te-llevo-app.png"></ion-img> 
+          <!-- <ion-img [src]="ava.srcimagen"></ion-img> -->
+        </ion-card-title>
+        <ion-button color="dark" expand="block" routerLink="../registro">
+          Registrate
+        </ion-button>
+      </ion-card-header>
+      
+      <ion-card-content>
+       <ion-button expand="block" color="light" routerLink="../ingreso-usuario" class="animate__animated animate__bounce">Iniciar Sesión</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+
+  <ion-content class="ion-padding">
+    <ion-list *ngFor="let cat of categorias ; let i=index" >
+      <ion-text color="primary">
+        <p>Publicidad</p>
+        <ion-button expand="block" routerLink="../tipocomidas">
+          Tipo de Comidas!
+        </ion-button>
+        <ion-card (click)="onClick(cat.strCategory)">
+          <ion-card-header>
+            <ion-card-subtitle>{{cat.strCategory}}</ion-card-subtitle>
+            <ion-card-title></ion-card-title>
+          </ion-card-header>
+          <ion-img src="{{cat.strCategoryThumb}}"></ion-img>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
+      </ion-text>
+    </ion-list>
+  </ion-content>
+ 
+
+ 
+
+
+
+
+
+
+<app-footer></app-footer>

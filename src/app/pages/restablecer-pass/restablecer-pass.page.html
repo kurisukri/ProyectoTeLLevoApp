@@ -1,0 +1,22 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperación</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="volver"></ion-back-button>
+    </ion-buttons>
+    <ion-icon slot="end" name="bulb-outline" class="ion-padding"></ion-icon> 
+  </ion-toolbar>
+</ion-header> -->
+<app-encabezado titulo="Recuperación" icono="bulb-outline"></app-encabezado>
+
+<ion-content class="ion-padding">
+<ion-text color="primary">
+  
+  <form #miformulario="ngForm" (ngSubmit)="onSubmit()">
+    <ion-input  required type="text" name="usr" placeholder="Ingrese aquí su usuario" [(ngModel)]="user.username"></ion-input>
+    <ion-button color="dark" type="submit" expand="block" [disabled]="miformulario.invalid">
+      Solicitar password
+    </ion-button>
+  </form>
+</ion-text>
+</ion-content>
