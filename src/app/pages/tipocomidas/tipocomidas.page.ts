@@ -8,7 +8,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { Categories } from '../../interfaces/categorias';
+import { Categories, Category } from '../../interfaces/categorias';
 
 @Component({
   selector: 'app-tipocomidas',
@@ -30,10 +30,10 @@ export class TipocomidasPage implements OnInit {
   ngOnInit() {
     this.actrouter.queryParams.subscribe(datos=>
     {
-      this.tipo=this.router.getCurrentNavigation().extras.state.categorias;
+      this.tipo=this.router.getCurrentNavigation().extras.state.categoria;
     });
 
-    this.srvcomidas.getComidasxTipo("Vegan").subscribe(datos=>
+    this.srvcomidas.getComidasxTipo(this.tipo).subscribe(datos=>
       {
         this.comidas.push(...datos.meals);
         console.log(this.comidas);

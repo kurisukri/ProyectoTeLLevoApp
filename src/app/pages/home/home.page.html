@@ -36,12 +36,9 @@
 
 
   <ion-content class="ion-padding">
-    <ion-list *ngFor="let cat of categorias ; let i=index" >
+    <ion-list *ngFor="let cat of categorias; let i=index" >
       <ion-text color="primary">
         <p>Publicidad</p>
-        <ion-button expand="block" routerLink="../tipocomidas">
-          Tipo de Comidas!
-        </ion-button>
         <ion-card (click)="onClick(cat.strCategory)">
           <ion-card-header>
             <ion-card-subtitle>{{cat.strCategory}}</ion-card-subtitle>
