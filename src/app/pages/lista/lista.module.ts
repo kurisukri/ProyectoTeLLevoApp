@@ -8,6 +8,9 @@ import { ListaPageRoutingModule } from './lista-routing.module';
 
 import { ListaPage } from './lista.page';
 import { ComponentsModule } from '../../components/components.module';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { AppComponent } from '../../app.component';
+AppComponent
 
 @NgModule({
   imports: [
@@ -15,7 +18,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     ListaPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    IonicStorageModule.forRoot(),
   ],
   declarations: [ListaPage]
 })

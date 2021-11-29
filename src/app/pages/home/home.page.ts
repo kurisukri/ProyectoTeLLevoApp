@@ -10,10 +10,6 @@ import { ComidasService } from '../../services/comidas.service';
 })
 export class HomePage implements OnInit {
 
-  // logo=[{
-  //   srcimagen: "../assets/images/te-llevo-app.png"
-  // }]
-
   categorias: Category[] = [];
 
   constructor(private comidaservice: ComidasService, private router: Router) { }

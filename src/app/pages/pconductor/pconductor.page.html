@@ -1,11 +1,43 @@
+<app-encabezado titulo="Modo Conductor" icono="car-outline"></app-encabezado>
+
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>pconductor</ion-title>
+    <ion-title>Creacion de Viajes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button  expand="block" fill="clear" shape="round">
-    Click me
-  </ion-button>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title size="large">Registra los datos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label position="floating">Patente Auto</ion-label>
+    <ion-input type="text"  placeholder="Ej:GT-4567" #txtPatente></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input placeholder="Ingresa Nombre y Apellido" type="text" #txtNombre></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Destinos Posibles</ion-label>
+    <ion-input type="text" placeholder="Ej :Concepción centro, puerto Talcahuano, etc" #txtDestinos></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Fono</ion-label>
+    <ion-input type="text" placeholder="Ej : +56 9 72921003, etc"  #txtTelefono></ion-input>
+  </ion-item>
+  
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="agregar(txtPatente, txtNombre ,txtDestinos, txtTelefono)">
+
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
