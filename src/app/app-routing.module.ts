@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'lista',
     loadChildren: () => import('./pages/lista/lista.module').then( m => m.ListaPageModule),
-    //canActivate:[LogincontrolGuard]
+    canActivate:[LogincontrolGuard]
   },
   {
     path: 'registro',
@@ -36,7 +36,7 @@ const routes: Routes = [
   {
     path: 'pconductor',
     loadChildren: () => import('./pages/pconductor/pconductor.module').then( m => m.PconductorPageModule),
-    //canActivate:[LogincontrolGuard]
+    canActivate:[LogincontrolGuard]
   },
   {
     path: 'mapita',

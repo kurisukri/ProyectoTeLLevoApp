@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { MapitaPageRoutingModule } from './mapita-routing.module';
 
 import { MapitaPage } from './mapita.page';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MapitaPageRoutingModule
+    MapitaPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [MapitaPage]
 })

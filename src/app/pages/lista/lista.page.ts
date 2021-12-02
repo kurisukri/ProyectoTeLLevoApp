@@ -26,10 +26,7 @@ export class ListaPage implements OnInit {
      { 
     this.activeroute.queryParams.subscribe(
     params => {
-    if(this.router.getCurrentNavigation().extras.state){
-    this.usuario=this.router.getCurrentNavigation().extras.state.miusuario.username;
-    console.log(this.usuario);
-    }
+    
     }
     )
     }
@@ -122,7 +119,7 @@ export class ListaPage implements OnInit {
 
 
 
-  usuario:string='';
+
 
   
 
@@ -130,13 +127,13 @@ export class ListaPage implements OnInit {
    
 
 
-  async onClick()
+  /* async onClick()
   {
     
     this.cerrarSesion();
-  }
+  } */
 
-  async cerrarSesion()
+/*   async cerrarSesion()
   {
     console.log("aaaaaaaaaaaaaaa")
     if(this.sesion.valor == 1)
@@ -147,6 +144,6 @@ export class ListaPage implements OnInit {
       await this.storage.set('sesion',this.sesion);
       this.router.navigate(['./home']);
       }
-    }
+    } */
   
 }

@@ -21,12 +21,12 @@
 </ion-content> -->
 
 
-
+<!-- 
 <ion-item>
   <ion-label position="floating">Destinos Posibles</ion-label>
   <ion-input type="text" placeholder="Ej :Concepción centro, puerto Talcahuano, etc" #txtDestinos></ion-input>
 </ion-item>
-
+ -->
 <!-- <div *ngIf=>
   <ion-text color="secondary">
     <h1 class="ion-text-center">Destino : {{destinos}}</h1>
@@ -50,29 +50,23 @@
   </ion-list>
 </ion-content> -->
 
+<div>
+  <button routerLink="../mapita"> Gestiona Tu viaje</button>
+</div>
+ 
+  
 
- <div *ngIf="listado.length > 0 ">
-  <ion-list>
-    <div *ngFor="let item of listado">
-      <ion-item>
-        <ion-label></ion-label>
-      </ion-item>
-
-    </div>
-  </ion-list>
-
-
- </div>
-
+ 
+<!-- 
  <ion-button (click)="txtDestinos">
    <ion-icon slot="icon-only" name="list"></ion-icon>
- </ion-button>
+ </ion-button> -->
 
 
-
+<!-- 
   <ion-button (ngOnInit)="ngOnInit()" slot="icon-only" name="search" expand="block">
     Cerrar Sesión routerLink="../home" 
-  </ion-button>
+  </ion-button> -->
 
 <!-- <ion-button (click)="listar()" slot="end" >
   <ion-icon slot="end" name="list"></ion-icon>

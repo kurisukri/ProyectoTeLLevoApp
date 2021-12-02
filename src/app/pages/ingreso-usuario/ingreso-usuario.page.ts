@@ -14,6 +14,11 @@ export class IngresoUsuarioPage implements OnInit {
 
   
   tipousuariox:TipoUsuario[];
+  
+  constructor(
+    private alertController:AlertController, 
+    private router:Router, 
+    private storage:Storage) { }
 
   tipousuario={
     id:0,
@@ -21,7 +26,7 @@ export class IngresoUsuarioPage implements OnInit {
 
   }
 
-  user={
+  user:Usuario={
     username:'',
     password:'',
     activo:0
@@ -35,11 +40,6 @@ export class IngresoUsuarioPage implements OnInit {
   }
 
   
-
-  constructor(
-    private alertController:AlertController, 
-    private router:Router, 
-    private storage:Storage) { }
 
   ngOnInit() {
     this.tipousuariox= [
@@ -66,7 +66,7 @@ export class IngresoUsuarioPage implements OnInit {
         this.sesion.valor=1;
         this.sesion.username=this.user.username;
         await this.storage.set('sesion',this.sesion);
-        this.router.navigate(['./ingreso-usuario']);
+        this.router.navigate(['./lista']);
        
         return
          

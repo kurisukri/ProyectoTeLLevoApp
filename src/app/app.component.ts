@@ -1,10 +1,10 @@
 import { Viajes } from 'src/app/interfaces/usuario';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Opmenu } from './interfaces/opmenu';
 import { Storage } from '@ionic/storage-angular';
 import { Sesion, Usuario } from './interfaces/usuario';
 import { TipoUsuario } from './interfaces/usuario';
-import { MapCustomService } from './services/map-custom.service';
+
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,19 @@ import { MapCustomService } from './services/map-custom.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
+ 
+
+  constructor(private storage:Storage,
+    
+    
+    ) {
+      
+    }
+    async ngOnInit() {
+      await this.storage.create();
+      await this.storage.set('sesion',this.sesion);
+  
+   }
   listado: Viajes[] = []; 
   Employee={
     id:0,
@@ -39,24 +52,9 @@ export class AppComponent implements OnInit {
     }
       
   ]  
-  constructor(private storage:Storage,
-              private mapCustomService: MapCustomService
-              ) {}
+  
 
-  async ngOnInit() {
-     await this.storage.create();
-     await this.storage.set('sesion',this.sesion);
-
-     this.mapCustomService.buildMap() 
-    .then((data) => {
-      console.log('***TODO BIEN***',data);
-    })
-    .catch((err) => {
-      console.log('******* ERROR ********',err);
-    })
-     
-  }
-
+  
   //Ingresar datos al storage con key
   async agregarConKey(key:string, valor: string)
   {

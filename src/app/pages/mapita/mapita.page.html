@@ -1,17 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>mapita</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="wrapper">
+  <button (click)="drawRoute()" class="btn-route">Dibujar RUTA</button>
+  <!-- <button (click)="testMarker()" class="btn-route">Marcador</button> -->
+</div>
 
-<div class="wraper">
-  <div id="map" #asMap class="map-container">
+<div class="wrapper">
+  <div class="box-inputs">
+    <div>
+      <div id="geocoder" #asGeoCoder class="geocoder"></div>
+    </div>
+
+    <div (click)="changeMode('start')" [ngClass]="{'active-way':modeInput ==='start'}">
+      <div class="mock-abel">Inicio</div>
+      <div class="mock-input">Haga Click aquí y anote la direccion en search{{wayPoints?.start?.place_name}}</div>
+    </div>
+
+    <div (click)="changeMode('end')" [ngClass]="{'active-way':modeInput ==='end'}">
+      <div class="mock-abel">Final</div>
+      <div class="mock-input">Haga Click aquí y anote la direccion en search{{wayPoints?.end?.place_name}}</div>
+    </div>
 
   </div>
 </div>
 
+<div class="wraper">
+
+  <div id="map" #asMap class="map-container"></div>
 
 
-<ion-content>
+</div>
 
-</ion-content>
+
