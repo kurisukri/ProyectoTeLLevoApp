@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { Storage } from '@ionic/storage-angular';
@@ -17,12 +18,10 @@ export class RegistroPage implements OnInit {
     password:'',
     activo:0,
     
-    
-    
   }
 
 
-  constructor(private storage:Storage, private router:Router) { }
+  constructor(private storage:Storage, private router:Router, private alertController:AlertController) { }
 
   ngOnInit() {
   }
@@ -30,7 +29,8 @@ export class RegistroPage implements OnInit {
   onSubmit(){
     console.log(this.user);
     this.guardar(this.user);
-    this.router.navigate(['/lista'])
+    this.okok();
+    this.router.navigate(['/ingreso-usuario'])
   }
 
   async guardar(user:Usuario)
@@ -38,4 +38,16 @@ export class RegistroPage implements OnInit {
     await this.storage.set(user.username.toString(),user);
     console.log("Usuario agregado")
   }
+  async okok() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Registrado con éxito',
+      subHeader: 'Ahora puede logearse',
+      message: '',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }

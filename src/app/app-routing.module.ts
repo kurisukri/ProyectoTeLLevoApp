@@ -38,6 +38,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pconductor/pconductor.module').then( m => m.PconductorPageModule),
     //canActivate:[LogincontrolGuard]
   },
+  {
+    path: 'mapita',
+    loadChildren: () => import('./pages/mapita/mapita.module').then( m => m.MapitaPageModule)
+  },
 ];
 
 @NgModule({

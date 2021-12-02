@@ -19,7 +19,7 @@ AppComponent
     IonicModule,
     ListaPageRoutingModule,
     ComponentsModule,
-    IonicStorageModule.forRoot(),
+    
   ],
   declarations: [ListaPage]
 })

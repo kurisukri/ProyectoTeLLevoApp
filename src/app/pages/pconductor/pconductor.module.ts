@@ -16,7 +16,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     IonicModule,
     PconductorPageRoutingModule,
     ComponentsModule,
-    IonicStorageModule.forRoot()
+    
   ],
   declarations: [PconductorPage]
 })

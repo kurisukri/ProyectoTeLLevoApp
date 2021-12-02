@@ -13,31 +13,34 @@
       <ion-title size="large">Registra los datos</ion-title>
     </ion-toolbar>
   </ion-header>
-
+<form #viajesform="ngForm" (ngSubmit)="onSubmit()">
   <ion-item>
     <ion-label position="floating">Patente Auto</ion-label>
-    <ion-input type="text"  placeholder="Ej:GT-4567" #txtPatente></ion-input>
+    <ion-input type="text" name="patente" placeholder="Ej:GT-4567" id="patid" [(ngModel)]='viajes.patente'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input placeholder="Ingresa Nombre y Apellido" type="text" #txtNombre></ion-input>
+    <ion-input placeholder="Ingresa Nombre y Apellido" name="nombre" id="nameid" type="text" [(ngModel)]='viajes.nombre'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Destinos Posibles</ion-label>
-    <ion-input type="text" placeholder="Ej :Concepción centro, puerto Talcahuano, etc" #txtDestinos></ion-input>
+    <ion-input type="text" name="destinos" id="destid" placeholder="Ej :Concepción centro, puerto Talcahuano, etc" [(ngModel)]='viajes.destinos'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Fono</ion-label>
-    <ion-input type="text" placeholder="Ej : +56 9 72921003, etc"  #txtTelefono></ion-input>
+    <ion-input type="text" name="fono" placeholder="Ej : +56 9 72921003, etc" id="fonoid" [(ngModel)]='viajes.fono'></ion-input>
   </ion-item>
+
+  <ion-button color="dark" type="submit" expand="block" [disabled]="viajesform.invalid">
+    Registrar viaje
+  </ion-button>
+
+
+</form>
+<!--   <ion-button (click)="eliminar()">
+    <ion-icon slot="icon-only" name="delete"></ion-icon>
+  </ion-button> -->
   
 </ion-content>
 
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-button (click)="agregar(txtPatente, txtNombre ,txtDestinos, txtTelefono)">
-
-    </ion-button>
-  </ion-toolbar>
-</ion-footer>

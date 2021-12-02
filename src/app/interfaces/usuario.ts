@@ -18,3 +18,14 @@ export interface Sesion {
     valor:number,
     username:string
 }
+
+
+export interface Viajes {
+    cupos:number,
+    patente: string,
+    destinos: string,
+    nombre:string,
+    fono:string,
+    
+
+}

@@ -27,26 +27,56 @@
   <ion-input type="text" placeholder="Ej :Concepción centro, puerto Talcahuano, etc" #txtDestinos></ion-input>
 </ion-item>
 
-<div *ngIf=nombre>
+<!-- <div *ngIf=>
   <ion-text color="secondary">
-    <h1 class="ion-text-center">{{destinos}}</h1>
+    <h1 class="ion-text-center">Destino : {{destinos}}</h1>
   </ion-text>
   <ion-text color="secondary">
-    <h1 class="ion-text-center">{{nombre}}</h1>
+    <h1 class="ion-text-center">Nombre : {{nombre}}</h1>
   </ion-text>
-</div>
+  <ion-text color="secondary">
+    <h1 class="ion-text-center">Patente : {{patente}}</h1>
+  </ion-text>
+  <ion-text color="secondary">
+    <h1 class="ion-text-center">Fono : {{fono}}</h1>
+  </ion-text>
+</div> -->
 
-<ion-button (click)="buscar(txtDestinos)">
-  <ion-icon slot="icon-only" name="search"></ion-icon>
-</ion-button>
+<!-- <ion-content class="ion-padding">
+  <ion-list *ngFor="let via of categoria ; let i=index">
+    <ion-item>
+      <ion-label>{{via.patente}}</ion-label> 
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+
+
+ <div *ngIf="listado.length > 0 ">
+  <ion-list>
+    <div *ngFor="let item of listado">
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+
+    </div>
+  </ion-list>
+
+
+ </div>
+
+ <ion-button (click)="txtDestinos">
+   <ion-icon slot="icon-only" name="list"></ion-icon>
+ </ion-button>
 
 
 
-  <ion-button (click)="onClick()" expand="block">
+  <ion-button (ngOnInit)="ngOnInit()" slot="icon-only" name="search" expand="block">
     Cerrar Sesión routerLink="../home" 
   </ion-button>
 
-
+<!-- <ion-button (click)="listar()" slot="end" >
+  <ion-icon slot="end" name="list"></ion-icon>
+</ion-button> -->
 
 
 <ion-img class="animate__animated animate__backInLeft" src="../assets/images/te-llevo-app.png"></ion-img> 

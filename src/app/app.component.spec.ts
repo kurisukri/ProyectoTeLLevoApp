@@ -20,4 +20,21 @@ describe('AppComponent', () => {
   });
   // TODO: add more tests!
 
+
+
+  describe('mi prueba',()=>
+  {
+    let variable:number
+
+    beforeEach(()=>
+    {
+      variable=5
+    })
+
+    it('debe valer 5', ()=>{
+      expect(variable).toEqual(5)
+    })
+
+  })
+
 });

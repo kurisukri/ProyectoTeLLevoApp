@@ -1,7 +1,7 @@
 import { AlertController, ToastController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario,Sesion,TipoUsuario } from 'src/app/interfaces/usuario';
+import { Usuario,Sesion,TipoUsuario, Viajes } from 'src/app/interfaces/usuario';
 import { Storage } from '@ionic/storage-angular';
 import { alertController, toastController } from '@ionic/core';
 import { AppComponent } from 'src/app/app.component';
@@ -13,9 +13,10 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class ListaPage implements OnInit {
 
-  destinos: "";
-  nombre:"";
-  patente: "";
+  
+  listado: Viajes[] = [];
+  
+
   constructor(private alertController:AlertController,
     private activeroute:ActivatedRoute, 
     private router:Router,
@@ -33,34 +34,35 @@ export class ListaPage implements OnInit {
     )
     }
   
-    async buscar(txtDestinos)
-    {
-      //retorna el valor encontrado(si es que existe)
-      const valor=await this.app.rescatar(txtDestinos.value);
-      //muestra el valor encontrado
-      if(valor != null)
-      {
-        this.destinos = valor[0].destinos;
-        this.nombre = valor[0].nombre;
-        this.patente = valor[0].patente;
-        //limpia cajas de texto
-        txtDestinos.value = "";
+    // async buscar(destinos)
+    // {
+    //   //retorna el valor encontrado(si es que existe)
+    //   const valor=await this.app.rescatar(destinos.value);
+    //   //muestra el valor encontrado
+    //   if(valor != null)
+    //   {
+    //     this.viajes.destinos = valor.destinos;
+    //     this.viajes.nombre = valor[0].nombre;
+    //     this.viajes.patente = valor[0].patente;
+    //     this.viajes.fono= valor[0].fono;
+    //     //limpia cajas de texto
+    //     destinos.value = "";
         
-      }
-      else
-      {
+    //   }
+    //   else
+    //   {
       
-        const toast = await this.toast.create({
-          message: 'No encontrado',
-          duration: 2000,
-          color : "danger",
-          position: "middle"
-        });
-        toast.present();
+    //     const toast = await this.toast.create({
+    //       message: 'No encontrado',
+    //       duration: 2000,
+    //       color : "danger",
+    //       position: "middle"
+    //     });
+    //     toast.present();
       
-      }
+    //   }
       
-    }
+    // }
 
     
 
@@ -76,11 +78,13 @@ export class ListaPage implements OnInit {
     
   }
 
-  personas=[
+/* 
+  personas:[
     {
-      nombre:"Jorge",
-      apellido:"Melgarejo",
-      srcimagen: "../assets/images/jorge.png"
+      nombre: "" ,
+      apellido :"",
+      srcimagen: "../assets/images/varela.png"
+      
     }
     ,
     {
@@ -94,27 +98,36 @@ export class ListaPage implements OnInit {
       apellido:"Ezpinoza",
       srcimagen: "../assets/images/pato.png"
     }
-  ]
+  ] */
+  
+  
+  async ngOnInit()
+  {
+   
+  }
+  
+  onSubmit(){
+  
+    
+  } 
+  
+
+  // listar()
+  // {
+  //   this.listado = this.app.listar()
+  // }
+
+
+
+
+
 
   usuario:string='';
 
   
 
-  
 
-  
-
-  
-
-
-  ngOnInit() {
-    let listado = []
-      this.storage.forEach((v,k) => {listado.push(v);})
-      return listado;
-    
-  }
-
-  
+   
 
 
   async onClick()

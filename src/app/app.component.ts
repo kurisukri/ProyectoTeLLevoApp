@@ -1,16 +1,18 @@
+import { Viajes } from 'src/app/interfaces/usuario';
 import { Component, OnInit } from '@angular/core';
 import { Opmenu } from './interfaces/opmenu';
 import { Storage } from '@ionic/storage-angular';
 import { Sesion, Usuario } from './interfaces/usuario';
 import { TipoUsuario } from './interfaces/usuario';
+import { MapCustomService } from './services/map-custom.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
-
+export class AppComponent implements OnInit {
+  listado: Viajes[] = []; 
   Employee={
     id:0,
     name:''
@@ -38,13 +40,21 @@ export class AppComponent {
       
   ]  
   constructor(private storage:Storage,
+              private mapCustomService: MapCustomService
               ) {}
 
   async ngOnInit() {
      await this.storage.create();
      await this.storage.set('sesion',this.sesion);
 
-    
+     this.mapCustomService.buildMap() 
+    .then((data) => {
+      console.log('***TODO BIEN***',data);
+    })
+    .catch((err) => {
+      console.log('******* ERROR ********',err);
+    })
+     
   }
 
   //Ingresar datos al storage con key
@@ -54,17 +64,17 @@ export class AppComponent {
   }
   
   //Ingresar datos al storage con key autoincrementable opcional
-  async agregar(valor:any)
+  async agregar(valor:Viajes)
   {
-    let id = await this.storage.length() + 1;
-    await this.storage.set(id.toString(),valor);
+    
+    await this.storage.set(valor.patente.toString(),valor);
   }
 
-  async rescatar(key:string)
+  async rescatar(destinos:string)
   {
-    return await this.storage.get(key);
+    return await this.storage.get(destinos);
   }
-  listar()
+  async listar()
   {
     let listado = []
     this.storage.forEach((v,k) => {listado.push(v);})

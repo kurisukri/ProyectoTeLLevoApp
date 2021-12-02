@@ -66,7 +66,8 @@ export class IngresoUsuarioPage implements OnInit {
         this.sesion.valor=1;
         this.sesion.username=this.user.username;
         await this.storage.set('sesion',this.sesion);
-        this.router.navigate(['./lista']);
+        this.router.navigate(['./ingreso-usuario']);
+       
         return
          
       }
@@ -99,4 +100,5 @@ export class IngresoUsuarioPage implements OnInit {
     await alert.present();
   }
 
+  
 }
