@@ -1,3 +1,6 @@
+<ion-button (click)="cerrarSesion()">
+  <ion-icon slot="icon-only">Cerrar Sesión</ion-icon>
+</ion-button>
 <div class="wrapper">
   <button (click)="drawRoute()" class="btn-route">Dibujar RUTA</button>
   <!-- <button (click)="testMarker()" class="btn-route">Marcador</button> -->
@@ -11,12 +14,12 @@
 
     <div (click)="changeMode('start')" [ngClass]="{'active-way':modeInput ==='start'}">
       <div class="mock-abel">Inicio</div>
-      <div class="mock-input">Haga Click aquí y anote la direccion en search{{wayPoints?.start?.place_name}}</div>
+      <div class="mock-input">{{wayPoints?.start?.place_name}}</div>
     </div>
 
     <div (click)="changeMode('end')" [ngClass]="{'active-way':modeInput ==='end'}">
       <div class="mock-abel">Final</div>
-      <div class="mock-input">Haga Click aquí y anote la direccion en search{{wayPoints?.end?.place_name}}</div>
+      <div class="mock-input">{{wayPoints?.end?.place_name}}</div>
     </div>
 
   </div>
@@ -28,5 +31,6 @@
 
 
 </div>
+
 
 

@@ -75,7 +75,7 @@ export class ListaPage implements OnInit {
     
   }
 
-/* 
+
   personas:[
     {
       nombre: "" ,
@@ -95,7 +95,7 @@ export class ListaPage implements OnInit {
       apellido:"Ezpinoza",
       srcimagen: "../assets/images/pato.png"
     }
-  ] */
+  ] 
   
   
   async ngOnInit()

@@ -17,8 +17,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     FormsModule,
     IonicModule,
     ListaPageRoutingModule,
-    ComponentsModule,
-    
+    ComponentsModule,    
   ],
   declarations: [ListaPage]
 })

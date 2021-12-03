@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit,Renderer2, ViewChild } from '@angular/core';
 import { MapCustomService } from '../../services/map-custom.service';
-
+import { Sesion, Usuario } from 'src/app/interfaces/usuario';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-mapita',
   templateUrl: './mapita.page.html',
@@ -14,6 +16,8 @@ export class MapitaPage implements OnInit {
   constructor(
     private mapCustomService : MapCustomService,
     private renderer2:Renderer2,
+    private router:Router,
+    private storage:Storage
 
   ) { }
 
@@ -61,7 +65,26 @@ export class MapitaPage implements OnInit {
   testMarker(): void{
     this.mapCustomService.addMarkerCustom([-36.79526224840246, -73.06254061508037]);
   }
-  
+
+  user:Usuario={
+    username:'',
+    password:'',
+    activo:0
+    
+  }
+
+  sesion:Sesion=
+  {
+    valor:0,
+    username:''
+  }
+
+  cerrarSesion(){
+    this.sesion.valor=1;
+    this.sesion.username=this.user.username;
+    this.storage.set('sesion',this.sesion);
+    this.router.navigate(['./home']);
+  }
 }
 export class wayPoints {
   start:any;

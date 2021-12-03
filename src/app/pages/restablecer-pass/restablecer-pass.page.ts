@@ -28,7 +28,7 @@ export class RestablecerPassPage implements OnInit {
     this.validarUser(this.user)
     
   }
-
+  
   async validarUser(u:Usuario)
   {
     let usuario=await this.storage.get(u.username);
@@ -37,7 +37,7 @@ export class RestablecerPassPage implements OnInit {
       if(u.username == usuario.username)
       {
         console.log('Tu contraseña es: '+usuario.password)
-        this.correcto();
+        this.correcto(u);
       }
     else
       {
@@ -58,19 +58,24 @@ export class RestablecerPassPage implements OnInit {
     await alert.present();
   }
 
-  async correcto()
+  async correcto(u: Usuario)
    {
-    /* let usuario=await this.storage.get(us.username); */
-    const alert = await this.alertController.create(
-      {
-      cssClass: 'my-custom-class',
-      header: 'Casi estamos!',
-      subHeader: 'Tu contraseña es '/* +usuario.password */ ,
-      message: 'Revise su correo',
-      buttons: ['OK']
-    });
-
-    await alert.present();
+   // let usuario=await this.storage.get(us.password);//
+    let usuario=await this.storage.get(u.username);
+    if(u.username == usuario.username)
+    {
+      console.log('Tu contraseña es: '+usuario.password)
+      const alert = await this.alertController.create(
+        {
+        cssClass: 'my-custom-class',
+        header: 'Casi estamos!',
+        subHeader: 'Tu contraseña es :'+usuario.password,
+        message: 'Revise su correo',
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
+    
   }
 
 }

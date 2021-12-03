@@ -9,7 +9,6 @@ import { MapitaPageRoutingModule } from './mapita-routing.module';
 import { MapitaPage } from './mapita.page';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   imports: [
     CommonModule,
